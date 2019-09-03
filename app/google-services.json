@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "700398572935",
+    "firebase_url": "https://manage-staff-12b5f.firebaseio.com",
+    "project_id": "manage-staff-12b5f",
+    "storage_bucket": "manage-staff-12b5f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700398572935:android:6186e20f5afb787f",
+        "android_client_info": {
+          "package_name": "com.example.managestaff"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700398572935-v4fuk87qa9r46ipih59oktvi3bhsdipk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.managestaff",
+            "certificate_hash": "413f59aafd10eec4137548b60394983848b1ab63"
+          }
+        },
+        {
+          "client_id": "700398572935-877sckfq8vkurqvhvhnrj7r287g0lamd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcmgAKoVTry_fHBH5W9LskF71CvaAuiHA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700398572935-877sckfq8vkurqvhvhnrj7r287g0lamd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

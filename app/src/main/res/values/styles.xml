@@ -1,0 +1,26 @@
+
+<resources
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MatButton" parent="Theme.MaterialComponents">
+        <item name="colorOnPrimary">@android:color/holo_red_light</item>
+        <item name="colorPrimary">#5f27cd</item>
+        <item name="colorOnSurface">#ee5253</item>
+    </style>
+
+    <style name="MatButtonDelete" parent="Theme.MaterialComponents">
+        <item name="colorOnPrimary">@android:color/holo_red_light</item>
+        <item name="colorPrimary">#eb2f06</item>
+        <item name="colorOnSurface">#ee5253</item>
+    </style>
+
+
+</resources>
