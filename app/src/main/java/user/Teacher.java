@@ -27,7 +27,7 @@ public class Teacher {
     }
 
     public Teacher( String fullName, String birthday, String gender, String joinDate, float salaryCoefficient) {
-        this.teachCode = teachCode + MainActivity.currentTeacherCode ++;
+        this.teachCode = teachCode + MainActivity.currentTeacherCode ;
         MainActivity.updateCurrentTeacherCode(MainActivity.currentTeacherCode);
         this.fullName = fullName;
         this.birthday = birthday;
