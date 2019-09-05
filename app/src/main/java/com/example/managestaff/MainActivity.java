@@ -79,12 +79,7 @@ public class MainActivity extends AppCompatActivity implements TeacherAdapter.On
             }
         });
 
-        searchView.setOnSearchClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Search View clicked",Toast.LENGTH_LONG).show();
-            }
-        });
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -108,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements TeacherAdapter.On
 
         mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
                 mListTeacher.clear();
 
@@ -222,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements TeacherAdapter.On
     }
     public static void updateCurrentTeacherCode(int currentTeacherCode){
         DatabaseReference databaseReference = mFirebaseInstance.getReference("currentTeacherCode");
-        databaseReference.setValue(currentTeacherCode);
+        databaseReference.setValue(++currentTeacherCode);
     }
 
 

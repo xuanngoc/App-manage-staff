@@ -16,12 +16,6 @@ public class Teacher {
     public String joinDate;
     public float salaryCoefficient;
 
-
-
-
-
-
-
     public Teacher() {
         // Default constructor
     }
@@ -49,8 +43,6 @@ public class Teacher {
     public String getTeachCode() {
         return teachCode;
     }
-
-
 
     public String getFullName() {
         return fullName;
@@ -83,7 +75,6 @@ public class Teacher {
     public void setJoinDate(String joinDate) {
         this.joinDate = joinDate;
     }
-
     public float getSalaryCoefficient() {
         return salaryCoefficient;
     }
@@ -91,7 +82,6 @@ public class Teacher {
     public void setSalaryCoefficient(float salaryCoefficient) {
         this.salaryCoefficient = salaryCoefficient;
     }
-
 
     public int getAge(){
         int yearOfBirth;

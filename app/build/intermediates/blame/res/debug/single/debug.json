@@ -4,12 +4,12 @@
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\5a050365d7b6a211136a176ccd64410a\\material-1.1.0-alpha06\\res\\anim\\design_snackbar_out.xml"
     },
     {
-        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_design_ic_visibility.png.flat",
-        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\5a050365d7b6a211136a176ccd64410a\\material-1.1.0-alpha06\\res\\drawable-xhdpi-v4\\design_ic_visibility.png"
-    },
-    {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_design_ic_visibility.png.flat",
+        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\5a050365d7b6a211136a176ccd64410a\\material-1.1.0-alpha06\\res\\drawable-xhdpi-v4\\design_ic_visibility.png"
     },
     {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_arrow_down_black_24dp.xml.flat",
@@ -36,12 +36,12 @@
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_googleg_disabled_color_18.png.flat",
-        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\eb446c017cc349a6893fc40cc7580548\\jetified-play-services-base-16.0.1\\res\\drawable-hdpi-v4\\googleg_disabled_color_18.png"
-    },
-    {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\eb446c017cc349a6893fc40cc7580548\\jetified-play-services-base-16.0.1\\res\\drawable-hdpi-v4\\googleg_disabled_color_18.png"
     },
     {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\layout_support_simple_spinner_dropdown_item.xml.flat",
@@ -116,12 +116,12 @@
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\5a050365d7b6a211136a176ccd64410a\\material-1.1.0-alpha06\\res\\drawable-xhdpi-v4\\design_ic_visibility_off.png"
     },
     {
-        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23_abc_control_background_material.xml.flat",
-        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\drawable-v23\\abc_control_background_material.xml"
-    },
-    {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_btn_colored_material.xml.flat",
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23_abc_control_background_material.xml.flat",
+        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\drawable-v23\\abc_control_background_material.xml"
     },
     {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\interpolator_btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml.flat",
@@ -140,12 +140,12 @@
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\drawable-xxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_spinner.xml.flat",
-        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\color\\abc_tint_spinner.xml"
-    },
-    {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_bottom_navigation_item.xml.flat",
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\5a050365d7b6a211136a176ccd64410a\\material-1.1.0-alpha06\\res\\layout\\design_bottom_navigation_item.xml"
+    },
+    {
+        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_spinner.xml.flat",
+        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\color\\abc_tint_spinner.xml"
     },
     {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
@@ -168,20 +168,20 @@
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\drawable-hdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\layout_test_toolbar_custom_background.xml.flat",
-        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\5a050365d7b6a211136a176ccd64410a\\material-1.1.0-alpha06\\res\\layout\\test_toolbar_custom_background.xml"
-    },
-    {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\animator_design_fab_show_motion_spec.xml.flat",
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\5a050365d7b6a211136a176ccd64410a\\material-1.1.0-alpha06\\res\\animator\\design_fab_show_motion_spec.xml"
     },
     {
-        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_radio_off_to_on_mtrl_animation.xml.flat",
-        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\drawable\\btn_radio_off_to_on_mtrl_animation.xml"
+        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\layout_test_toolbar_custom_background.xml.flat",
+        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\5a050365d7b6a211136a176ccd64410a\\material-1.1.0-alpha06\\res\\layout\\test_toolbar_custom_background.xml"
     },
     {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\layout_mtrl_layout_snackbar.xml.flat",
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\5a050365d7b6a211136a176ccd64410a\\material-1.1.0-alpha06\\res\\layout\\mtrl_layout_snackbar.xml"
+    },
+    {
+        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_radio_off_to_on_mtrl_animation.xml.flat",
+        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\drawable\\btn_radio_off_to_on_mtrl_animation.xml"
     },
     {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_mtrl_dark_on_surface_disabled.xml.flat",
@@ -264,12 +264,12 @@
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\drawable-xxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_design_ic_visibility_off.png.flat",
-        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\5a050365d7b6a211136a176ccd64410a\\material-1.1.0-alpha06\\res\\drawable-mdpi-v4\\design_ic_visibility_off.png"
-    },
-    {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\drawable-xxhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_design_ic_visibility_off.png.flat",
+        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\5a050365d7b6a211136a176ccd64410a\\material-1.1.0-alpha06\\res\\drawable-mdpi-v4\\design_ic_visibility_off.png"
     },
     {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\color_test_background_state.xml.flat",
@@ -280,12 +280,12 @@
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\drawable\\abc_ic_ab_back_material.xml"
     },
     {
-        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_search_view.xml.flat",
-        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\layout\\abc_search_view.xml"
-    },
-    {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_tab_icon.xml.flat",
         "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\5a050365d7b6a211136a176ccd64410a\\material-1.1.0-alpha06\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_search_view.xml.flat",
+        "source": "C:\\Users\\bxngo\\.gradle\\caches\\transforms-2\\files-2.1\\af6f3e01925a0d68ff88ed6d6f8fc650\\appcompat-1.1.0-alpha03\\res\\layout\\abc_search_view.xml"
     },
     {
         "merged": "D:\\android\\Managestaff\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",

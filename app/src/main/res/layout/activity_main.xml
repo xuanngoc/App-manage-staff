@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
-
-    android:background="#82ccdd">
+    android:background="#2ecc71">
 
     <TextView
         android:id="@+id/title"
@@ -23,8 +21,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_below="@+id/title"
-        android:background="#c8d6e5"
+        android:background="#ecf0f1"
         android:queryHint="Mã giáo viên, tên giáo viên, tuổi"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="5dp"
@@ -32,6 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/searchView"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:scrollbars="vertical"
         android:background="#fad390"
         />

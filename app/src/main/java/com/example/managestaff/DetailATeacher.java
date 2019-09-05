@@ -3,13 +3,17 @@ package com.example.managestaff;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Calendar;
 
 import user.Teacher;
 
@@ -45,12 +49,7 @@ public class DetailATeacher extends AppCompatActivity {
         btnSaveInfo = findViewById(R.id.btn_save_info);
 
 
-        /*intent.putExtra("teacherCode", teacher.getTeachCode());
-        intent.putExtra("fullName", teacher.getFullName());
-        intent.putExtra("birthday", teacher.getBirthday());
-        intent.putExtra("gender", teacher.getGender());
-        intent.putExtra("joinDate", teacher.getJoinDate());
-        intent.putExtra("salaryCoefficient", teacher.getSalaryCoefficient());*/
+
 
         Bundle bundle = getIntent().getExtras();
         teacherCodeView.setText(bundle.get("teacherCode").toString());
@@ -59,6 +58,9 @@ public class DetailATeacher extends AppCompatActivity {
         genderView.setText(bundle.get("gender").toString());
         joinDateView.setText(bundle.get("joinDate").toString());
         salaryCoefficientView.setText(bundle.get("salaryCoefficient").toString());
+
+
+
 
 
         btnChangeInfo.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +73,47 @@ public class DetailATeacher extends AppCompatActivity {
                 joinDateView.setEnabled(true);
                 salaryCoefficientView.setEnabled(true);
                 btnSaveInfo.setVisibility(View.VISIBLE);
+
+                /// set dialog pick date
+                birthdayView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final Calendar cldr = Calendar.getInstance();
+                        int day = cldr.get(Calendar.DAY_OF_MONTH);
+                        int month = cldr.get(Calendar.MONTH);
+                        int year = cldr.get(Calendar.YEAR);
+                        // date picker dialog
+
+                        DatePickerDialog datePicker = new DatePickerDialog(DetailATeacher.this,
+                                new DatePickerDialog.OnDateSetListener() {
+                                    @Override
+                                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                        birthdayView.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                    }
+                                }, year, month, day);
+                        datePicker.show();
+                    }
+                });
+
+                joinDateView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final Calendar cldr = Calendar.getInstance();
+                        int day = cldr.get(Calendar.DAY_OF_MONTH);
+                        int month = cldr.get(Calendar.MONTH);
+                        int year = cldr.get(Calendar.YEAR);
+                        // date picker dialog
+
+                        DatePickerDialog datePicker = new DatePickerDialog(DetailATeacher.this,
+                                new DatePickerDialog.OnDateSetListener() {
+                                    @Override
+                                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                        joinDateView.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                    }
+                                }, year, month, day);
+                        datePicker.show();
+                    }
+                });
             }
         });
 
@@ -84,6 +127,7 @@ public class DetailATeacher extends AppCompatActivity {
                         Float.parseFloat(salaryCoefficientView.getText().toString()));
 
                 MainActivity.updateTeacher(teacher, getApplicationContext());
+                finish();
             }
         });
 
@@ -131,11 +175,6 @@ public class DetailATeacher extends AppCompatActivity {
 
                 // show it
                 alertDialog.show();
-
-
-
-
-
             }
         });
 

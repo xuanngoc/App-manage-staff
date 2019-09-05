@@ -92,7 +92,7 @@ public class AddTeacherActivity extends AppCompatActivity {
                         joinDateView.getText().toString(),
                         Float.parseFloat( salaryCoefficientView.getText().toString()) );
                 MainActivity.addTeacher(teacher, getApplicationContext());
-                Toast.makeText(AddTeacherActivity.this, "Clicked", Toast.LENGTH_LONG).show();
+                //Toast.makeText(AddTeacherActivity.this, "Clicked", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
