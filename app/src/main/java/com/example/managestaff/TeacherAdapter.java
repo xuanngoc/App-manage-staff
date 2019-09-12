@@ -1,87 +1,52 @@
 package com.example.managestaff;
 
-import android.util.Log;
+import android.content.Context;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.recyclerview.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
 import user.Teacher;
 
-public class TeacherAdapter  extends RecyclerView.Adapter<TeacherAdapter.ViewHolder>{
+public class TeacherAdapter  extends ArrayAdapter<Teacher> {
 
     private static final String TAG = "TeacherAdapter";
 
     private List<Teacher> mList;
-    private OnTeacherListener mOnTeacherListenter;
+    private Context context;
 
-    public TeacherAdapter(List<Teacher> mList, OnTeacherListener onTeacherListener) {
-        this.mList = mList;
-        this.mOnTeacherListenter = onTeacherListener;
+
+    public TeacherAdapter(Context context, List<Teacher> list) {
+        super(context, R.layout.teacher_list_item, list);
+        this.context = context;
+        this.mList = list;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.teacher_list_item, parent, false);
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        LayoutInflater layoutInflater = LayoutInflater.from(context);
 
-        //Log.d("Teacher Adapter", "on Create View Holder");
+        View listItemView = layoutInflater.inflate(R.layout.teacher_list_item, null, false);
 
-        return new ViewHolder(itemView, mOnTeacherListenter);
-    }
+        TextView teacherCodeView = listItemView.findViewById(R.id.teacher_code_view);
+        TextView fullNameView = listItemView.findViewById(R.id.full_name_view);
 
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
         Teacher teacher = mList.get(position);
-        holder.teacherCodeView.setText(teacher.getTeachCode());
-        holder.fullNameView.setText(teacher.getFullName());
 
-        //Log.d("Teacher Adapter", "on BindViewHolder");
+        teacherCodeView.setText(teacher.getTeachCode());
+        fullNameView.setText(teacher.getFullName());
+
+        return listItemView;
     }
-
-    @Override
-    public int getItemCount() {
-
-        return mList.size();
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-
-        RelativeLayout parentLayout;
-        ImageView imageView;
-        TextView teacherCodeView;
-        TextView fullNameView;
-
-        OnTeacherListener onTeacherListener;
-
-        public ViewHolder(View itemView, OnTeacherListener onTeacherListener) {
-            super(itemView);
-
-            parentLayout = itemView.findViewById(R.id.parent_layout);
-            imageView = itemView.findViewById(R.id.imageAvatar);
-            teacherCodeView = itemView.findViewById(R.id.teacher_code_view);
-            fullNameView = itemView.findViewById(R.id.full_name_view);
-
-            this.onTeacherListener = onTeacherListener;
-
-            itemView.setOnClickListener(this);
-        }
-
-
-        @Override
-        public void onClick(View v) {
-            onTeacherListener.onTeacherClick(getAdapterPosition());
-        }
-    }
-
-    public interface OnTeacherListener{
-        void onTeacherClick(int position);
-    }
-
 }

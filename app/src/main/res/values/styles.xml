@@ -15,6 +15,11 @@
         <item name="colorPrimary">#5f27cd</item>
         <item name="colorOnSurface">#ee5253</item>
     </style>
+    <style name="MatButtonCancel" parent="Theme.MaterialComponents">
+        <item name="colorOnPrimary">@android:color/holo_red_light</item>
+        <item name="colorPrimary">#FD7272</item>
+        <item name="colorOnSurface">#FD7272</item>
+    </style>
 
     <style name="MatButtonDelete" parent="Theme.MaterialComponents">
         <item name="colorOnPrimary">@android:color/holo_red_light</item>

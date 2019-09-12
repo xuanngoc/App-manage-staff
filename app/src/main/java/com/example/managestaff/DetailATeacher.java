@@ -4,14 +4,20 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
@@ -30,6 +36,9 @@ public class DetailATeacher extends AppCompatActivity {
     private MaterialButton btnChangeInfo;
     private MaterialButton btnDeleteTeacher;
     private MaterialButton btnSaveInfo;
+
+    private static DatabaseReference mFirebaseDatabase;
+    private static FirebaseDatabase mFirebaseInstance;
 
 
     @Override
@@ -51,16 +60,20 @@ public class DetailATeacher extends AppCompatActivity {
 
 
 
+
+
         Bundle bundle = getIntent().getExtras();
         teacherCodeView.setText(bundle.get("teacherCode").toString());
-        fullNameView.setText(bundle.get("fullName").toString());
-        birthdayView.setText(bundle.get("birthday").toString());
-        genderView.setText(bundle.get("gender").toString());
-        joinDateView.setText(bundle.get("joinDate").toString());
-        salaryCoefficientView.setText(bundle.get("salaryCoefficient").toString());
+        fullNameView.setText(bundle.get("teacherName").toString());
+        birthdayView.setText(bundle.get("teacherBirthday").toString());
+        genderView.setText(bundle.get("teacherGender").toString());
+        joinDateView.setText(bundle.get("teacherJoinDate").toString());
+        salaryCoefficientView.setText(bundle.get("teacherSalaryCoefficient").toString());
 
+        final String departmentCode = bundle.get("departmentCode").toString();
 
-
+        mFirebaseInstance = FirebaseDatabase.getInstance();
+        mFirebaseDatabase = mFirebaseInstance.getReference("Departments").child(departmentCode).child("Teachers");
 
 
         btnChangeInfo.setOnClickListener(new View.OnClickListener() {
@@ -120,13 +133,15 @@ public class DetailATeacher extends AppCompatActivity {
         btnSaveInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Teacher teacher = new Teacher(fullNameView.getText().toString(),
+                Teacher teacher = new Teacher(teacherCodeView.getText().toString(),
+                        fullNameView.getText().toString(),
                         birthdayView.getText().toString(),
                         genderView.getText().toString(),
                         joinDateView.getText().toString(),
                         Float.parseFloat(salaryCoefficientView.getText().toString()));
 
-                MainActivity.updateTeacher(teacher, getApplicationContext());
+                System.out.println("FF" + departmentCode);
+                updateTeacher(teacher);
                 finish();
             }
         });
@@ -154,7 +169,7 @@ public class DetailATeacher extends AppCompatActivity {
                                         joinDateView.getText().toString(),
                                         Float.parseFloat(salaryCoefficientView.getText().toString()));
 
-                                MainActivity.deleteTeacher(teacher, getApplicationContext());
+                                deleteTeacher(teacher);
 
 
                                 // if this button is clicked, close
@@ -179,4 +194,26 @@ public class DetailATeacher extends AppCompatActivity {
         });
 
     }
+
+    public void updateTeacher(final Teacher teacher){
+        mFirebaseDatabase.child(teacher.getTeachCode()).setValue(teacher)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(DetailATeacher.this, "Updating data is success",Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
+
+    public void deleteTeacher(final Teacher teacher){
+        mFirebaseDatabase.child(teacher.getTeachCode()).setValue(null)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(DetailATeacher.this, "Deleting data is success" + teacher.getTeachCode(),Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
+
+
 }

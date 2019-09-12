@@ -1302,6 +1302,7 @@ drawable ic_keyboard_arrow_left_black_24dp
 drawable ic_keyboard_arrow_right_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_launcher_logo_background
 drawable ic_menu_arrow_down_black_24dp
 drawable ic_menu_arrow_up_black_24dp
 drawable ic_mtrl_checked_circle
@@ -1316,6 +1317,7 @@ drawable mtrl_ic_cancel
 drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
+drawable my_button
 drawable navigation_empty_icon
 drawable notification_action_background
 drawable notification_bg
@@ -1381,7 +1383,9 @@ id action_bar_subtitle
 id action_bar_title
 id action_container
 id action_context_bar
+id action_delete
 id action_divider
+id action_edit
 id action_image
 id action_menu_divider
 id action_menu_presenter
@@ -1401,10 +1405,14 @@ id async
 id auto
 id barrier
 id beginning
+id belong_department_edit_text
 id birthday_edit_text
 id blocking
 id bottom
+id btn_add_a_department
 id btn_add_teacher
+id btn_cancel_add_department
+id btn_cancel_add_teacher
 id btn_change_info
 id btn_del_teacher
 id btn_save_info
@@ -1440,17 +1448,21 @@ id date_picker_header
 id date_picker_header_title
 id decor_content_parent
 id default_activity_button
+id department_code_edit_text
+id department_code_view
+id department_name_edit_text
+id department_name_view
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
-id dialog_button
 id dimensions
 id direct
 id disableHome
 id dropdown_menu
 id edit_query
+id emptyView
 id end
 id end_padder
 id enterAlways
@@ -1458,6 +1470,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab_add_department
 id fab_add_teacher
 id fade
 id fill
@@ -1496,8 +1509,9 @@ id light
 id line1
 id line3
 id listMode
+id list_department_view
 id list_item
-id list_teachers
+id list_teacher
 id masked
 id media_actions
 id message
@@ -1577,6 +1591,7 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id spinner
 id split_action_bar
 id spread
 id spread_inside
@@ -1695,6 +1710,7 @@ layout abc_tooltip
 layout activity_add_teacher
 layout activity_detail_ateacher
 layout activity_main
+layout activity_show_list_teacher
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1711,6 +1727,8 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_spinner
+layout list_department_item
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -1753,7 +1771,11 @@ layout test_toolbar
 layout test_toolbar_custom_background
 layout test_toolbar_elevation
 layout test_toolbar_surface
+menu my_menu
 mipmap ic_launcher
+mipmap ic_launcher_logo
+mipmap ic_launcher_logo_foreground
+mipmap ic_launcher_logo_round
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description
@@ -2064,6 +2086,7 @@ style CardView_Dark
 style CardView_Light
 style EmptyTheme
 style MatButton
+style MatButtonCancel
 style MatButtonDelete
 style MaterialAlertDialog_MaterialComponents
 style MaterialAlertDialog_MaterialComponents_Body_Text

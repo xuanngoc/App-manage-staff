@@ -80,6 +80,21 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Thuộc bộ môn"
+        android:paddingBottom="8dp"
+        android:layout_marginTop="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/belong_department_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="Hệ số lương tối thiểu"
         android:paddingBottom="8dp"
         android:layout_marginTop="10dp">
@@ -93,15 +108,37 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_add_teacher"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm"
-        android:textColor="@android:color/white"
-        android:theme="@style/MatButton"
-        android:layout_marginTop="25dp"
-        />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="25dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add_teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="Thêm"
+            android:textColor="@android:color/white"
+            android:theme="@style/MatButton"
+            android:layout_marginRight="30dp"
+
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel_add_teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="50"
+            android:text="Cancel"
+            android:textColor="@android:color/white"
+            android:theme="@style/MatButtonCancel"
+            android:background="#FD7272"
+            />
+    </LinearLayout>
+
+
 
 
 </LinearLayout>

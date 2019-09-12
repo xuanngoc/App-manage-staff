@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,46 +10,61 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bộ môn Tin"
+        android:layout_weight="10"
+        android:text="Danh sách các bộ môn"
+        android:layout_marginTop="13dp"
         android:textSize="26sp"
-        android:layout_gravity="center"
-        android:layout_centerHorizontal="true"/>
+        android:gravity="center"/>
 
-    <SearchView
-        android:id="@+id/searchView"
+
+
+    <ListView
+        android:id="@+id/list_department_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_below="@+id/title"
-        android:background="#ecf0f1"
-        android:queryHint="Mã giáo viên, tên giáo viên, tuổi"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="5dp"
-        android:id="@+id/list_teachers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/searchView"
-        android:layout_marginLeft="15dp"
+        android:layout_height="400dp"
+        android:layout_weight="60"
         android:layout_marginRight="15dp"
-        android:scrollbars="vertical"
-        android:background="#fad390"
-        />
+        android:layout_marginLeft="15dp"/>
 
 
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:layout_marginBottom="30dp"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btn_add_teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="Thêm giáo viên"
+            android:textColor="#c23616"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/my_button"/>
+        <Button
+            android:id="@+id/btn_add_department"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="Thêm bộ môn"
+            android:textColor="#c23616"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/my_button"/>
+    </LinearLayout>-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_add_teacher"
+        android:id="@+id/fab_add_department"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
 
         android:src="@android:drawable/ic_input_add" />
 
 
 
 
-</RelativeLayout>
+
+</LinearLayout>

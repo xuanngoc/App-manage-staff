@@ -1,6 +1,7 @@
 package com.example.managestaff;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,14 +10,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,220 +32,175 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
+import user.Department;
 import user.Teacher;
 
-public class MainActivity extends AppCompatActivity implements TeacherAdapter.OnTeacherListener{
+public class MainActivity extends AppCompatActivity{
 
     private static DatabaseReference mFirebaseDatabase;
     private static FirebaseDatabase mFirebaseInstance;
 
 
-    private FloatingActionButton fabAddTeacher;
-    private RecyclerView recyclerView;
-    private SearchView searchView;
+//    private Button btnAddTeacher;
+    private FloatingActionButton btnAddDepartment;
+    private ListView listDepartmentView;
 
-    private TeacherAdapter mAdapter;
-    private List<Teacher> mListTeacher;
-    private List<Teacher> mListSearchResult;
 
-    public static int currentTeacherCode = 0;
+
+    public static List<String> listDepartmentName;
+    public static List<Department> listDepartment;
+    private DepartmentAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fabAddTeacher = findViewById(R.id.fab_add_teacher);
-        recyclerView = findViewById(R.id.list_teachers);
-        searchView = findViewById(R.id.searchView);
 
-        recyclerView.setHasFixedSize(true);
 
-        mListTeacher = new ArrayList<>();
-        mListSearchResult = new ArrayList<>();
+//        btnAddTeacher = findViewById(R.id.btn_add_teacher);
+        btnAddDepartment = findViewById(R.id.fab_add_department);
+        listDepartmentView = findViewById(R.id.list_department_view);
 
-        LinearLayoutManager llm =  new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(llm);
-        recyclerView.setAdapter(mAdapter);
+
+
 
 
         mFirebaseInstance = FirebaseDatabase.getInstance();
-        mFirebaseDatabase = mFirebaseInstance.getReference("Teachers");
+        mFirebaseDatabase = mFirebaseInstance.getReference("Departments");
+        //getCurrentTeacherCode("CTI");
 
-        getCurrentTeacherCode();
 
 
-        fabAddTeacher.setOnClickListener(new View.OnClickListener() {
+        listDepartmentName = new LinkedList<>();
+        listDepartment = new ArrayList<>();
+        getListDepartmentName();
+        getListDepartment();
+
+        mAdapter = new DepartmentAdapter(this, listDepartment);
+        listDepartmentView.setAdapter(mAdapter);
+
+
+
+
+        /*btnAddTeacher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentAddTeacher = new Intent(MainActivity.this, AddTeacherActivity.class );
                 startActivity(intentAddTeacher);
             }
+        });*/
+
+        btnAddDepartment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AlertDialog dialogBuilder = new AlertDialog.Builder(MainActivity.this).create();
+                LayoutInflater inflater = getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+
+                final TextInputEditText departmentCodeEditText =  dialogView.findViewById(R.id.department_code_edit_text);
+                final TextInputEditText departmentNameEditText = dialogView.findViewById(R.id.department_name_edit_text);
+                MaterialButton btnAdd = dialogView.findViewById(R.id.btn_add_a_department);
+                MaterialButton btnCancel = dialogView.findViewById(R.id.btn_cancel_add_department);
+
+                btnCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialogBuilder.dismiss();
+                    }
+                });
+                btnAdd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Department department = new Department(departmentCodeEditText.getText().toString(),
+                                departmentNameEditText.getText().toString());
+                        addDepartment(department);
+                        dialogBuilder.dismiss();
+                    }
+                });
+
+                dialogBuilder.setView(dialogView);
+                dialogBuilder.show();
+
+            }
         });
 
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        listDepartmentView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                searchTeacher(query);
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                searchTeacher(newText);
-                return true;
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Department department = (Department) parent.getItemAtPosition(position);
+                Toast.makeText(MainActivity.this,"-----------" + department.getDepartmentCode(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this,  ShowListTeacherActivity.class);
+                intent.putExtra("departmentCode", department.getDepartmentCode());
+                intent.putExtra("departmentName", department.getDepartmentName());
+                startActivity(intent);
             }
         });
-
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+    public void addDepartment(Department department){
+        mFirebaseDatabase.child(department.getDepartmentCode()).setValue(department)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
+            }
+        });
+        mFirebaseDatabase.child(department.getDepartmentCode()).child("currentTeacherCode").setValue(0);
+    }
 
+
+
+    public void getListDepartmentName(){
         mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                mListTeacher.clear();
-
-                for (DataSnapshot teacherSnapshot : dataSnapshot.getChildren()){
-                    Teacher teacher = teacherSnapshot.getValue(Teacher.class);
-                    mListTeacher.add(teacher);
-                    //Toast.makeText(MainActivity.this, teacher.getTeachCode(), Toast.LENGTH_LONG).show();
-                    //System.out.println(teacher.getTeachCode() + "  " + teacher.fullName);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                listDepartmentName.clear();
+                for(DataSnapshot departmentSnapshot : dataSnapshot.getChildren()){
+                    Department department = departmentSnapshot.getValue(Department.class);
+                    listDepartmentName.add(department.getDepartmentName());
                 }
-
-                mAdapter = new TeacherAdapter( mListTeacher, MainActivity.this);
-                recyclerView.setAdapter(mAdapter);
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
     }
-
-    public static void addTeacher(String teachCode, String fullName, String birthday,
-                                  String gender, String joinDate, float salaryCoefficient){
-        Teacher teacher = new Teacher(fullName, birthday, gender, joinDate, salaryCoefficient);
-
-        mFirebaseDatabase.child(teacher.getTeachCode()).setValue(teacher);
-
-    }
-    public static void addTeacher(final Teacher teacher, final Context context){
-
-
-
-        mFirebaseDatabase.child(teacher.getTeachCode()).setValue(teacher)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(context, "Inserting data is success",Toast.LENGTH_LONG).show();
-                    }
-                });
-
-    }
-
-    public static void updateTeacher(Teacher teacher, final Context context){
-        mFirebaseDatabase.child(teacher.getTeachCode()).setValue(teacher)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(context, "Updating data is success",Toast.LENGTH_LONG).show();
-                    }
-                });
-    }
-
-    public static void deleteTeacher(final Teacher teacher, final Context context){
-        mFirebaseDatabase.child(teacher.getTeachCode()).setValue(null)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(context, "Deleting data is success" + teacher.getTeachCode(),Toast.LENGTH_LONG).show();
-                    }
-                });
-    }
-
-
-    private void searchTeacher(final String value){
+    public void getListDepartment(){
         mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                mListSearchResult.clear();
-                for (DataSnapshot teacherSnapshot : dataSnapshot.getChildren()){
-                    Teacher teacher = teacherSnapshot.getValue(Teacher.class);
-                    if( teacher.getTeachCode().equals(value) || teacher.getFullName().contains(value)){
-                        mListSearchResult.add(teacher);
-                        System.out.println(teacher.getFullName());
-                    }
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                listDepartment.clear();
+                for(DataSnapshot departmentSnapshot : dataSnapshot.getChildren()){
+                    Department department  = departmentSnapshot.getValue(Department.class);
 
-                    ///
-                    try{
-                        int ageQuery = Integer.parseInt(value);
-                        if(teacher.getAge() >= ageQuery){
-                            mListSearchResult.add(teacher);
-                            System.out.println(teacher.getFullName() + "  age = " + teacher.getAge());
-                        }
-                    }catch(NumberFormatException ex){ // handle your exception
-                    }
+                    listDepartment.add(department);
+                    System.out.println("GG " + department.getDepartmentName());
+
                 }
-                TeacherAdapter teacherAdapter = new TeacherAdapter( mListSearchResult, MainActivity.this);
-                recyclerView.setAdapter(teacherAdapter);
+                mAdapter = new DepartmentAdapter(MainActivity.this, listDepartment);
+                listDepartmentView.setAdapter(mAdapter);
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                recyclerView.setAdapter(mAdapter);
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
     }
 
-    private void getCurrentTeacherCode(){
-        DatabaseReference databaseReference = mFirebaseInstance.getReference("currentTeacherCode");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                System.out.println(dataSnapshot.getValue());
-                currentTeacherCode = Integer.parseInt(dataSnapshot.getValue().toString());
+    public static String getDepartmentCode(String departmentName){
+        for(int i = 0; i < listDepartment.size(); i++ ){
+            if(listDepartment.get(i).getDepartmentName().equals(departmentName )){
+                return listDepartment.get(i).getDepartmentCode();
             }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
-    public static void updateCurrentTeacherCode(int currentTeacherCode){
-        DatabaseReference databaseReference = mFirebaseInstance.getReference("currentTeacherCode");
-        databaseReference.setValue(++currentTeacherCode);
-    }
-
-
-
-
-
-
-    @Override
-    public void onTeacherClick(int position) {
-        Toast.makeText(this, mListTeacher.get(position).getFullName(), Toast.LENGTH_SHORT).show();
-        Teacher teacher = mListTeacher.get(position);
-        Intent intent = new Intent(MainActivity.this, DetailATeacher.class);
-
-
-        intent.putExtra("teacherCode", teacher.getTeachCode());
-        intent.putExtra("fullName", teacher.getFullName());
-        intent.putExtra("birthday", teacher.getBirthday());
-        intent.putExtra("gender", teacher.getGender());
-        intent.putExtra("joinDate", teacher.getJoinDate());
-        intent.putExtra("salaryCoefficient", teacher.getSalaryCoefficient());
-
-        startActivity(intent);
+        }
+        return null;
     }
 }
