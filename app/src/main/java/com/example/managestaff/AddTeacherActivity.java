@@ -123,7 +123,7 @@ public class AddTeacherActivity extends AppCompatActivity {
 
 
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(AddTeacherActivity.this, android.R.layout.simple_spinner_item,
-                        MainActivity.listDepartmentName  );
+                        ShowListDepartmentActivity.listDepartmentName  );
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner.setAdapter(adapter);
 
@@ -153,7 +153,7 @@ public class AddTeacherActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String departmentName =  belongDepartmentView.getText().toString();
-                String departmentCode = MainActivity.getDepartmentCode(departmentName);
+                String departmentCode = ShowListDepartmentActivity.getDepartmentCode(departmentName);
 
                 /*System.out.println("Start to get data");
                 getCurrentTeacherCode(departmentCode);

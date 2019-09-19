@@ -5,8 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,7 +19,7 @@ public class DepartmentAdapter extends ArrayAdapter<Department>  {
     Context context;
 
     public DepartmentAdapter(Context context, List<Department> list){
-        super(context, R.layout.list_department_item, list);
+        super(context, R.layout.department_list_item, list);
         this.context = context;
         this.list = list;
 
@@ -34,7 +32,7 @@ public class DepartmentAdapter extends ArrayAdapter<Department>  {
 
         LayoutInflater layoutInflater = LayoutInflater.from(context);
 
-        View listItemView = layoutInflater.inflate(R.layout.list_department_item, null, false);
+        View listItemView = layoutInflater.inflate(R.layout.department_list_item, null, false);
 
 
         TextView departmentCodeView = listItemView.findViewById(R.id.department_code_view);

@@ -28,15 +28,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
-import user.Department;
-import user.Teacher;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -44,163 +35,41 @@ public class MainActivity extends AppCompatActivity{
     private static FirebaseDatabase mFirebaseInstance;
 
 
-//    private Button btnAddTeacher;
-    private FloatingActionButton btnAddDepartment;
-    private ListView listDepartmentView;
+    private MaterialButton btnDepartment;
+    private MaterialButton btnSubject;
 
 
-
-    public static List<String> listDepartmentName;
-    public static List<Department> listDepartment;
-    private DepartmentAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-//        btnAddTeacher = findViewById(R.id.btn_add_teacher);
-        btnAddDepartment = findViewById(R.id.fab_add_department);
-        listDepartmentView = findViewById(R.id.list_department_view);
-
-
-
-
-
         mFirebaseInstance = FirebaseDatabase.getInstance();
         mFirebaseDatabase = mFirebaseInstance.getReference("Departments");
-        //getCurrentTeacherCode("CTI");
 
+        btnDepartment = findViewById(R.id.btn_department);
+        btnSubject = findViewById(R.id.btn_subject);
 
-
-        listDepartmentName = new LinkedList<>();
-        listDepartment = new ArrayList<>();
-        getListDepartmentName();
-        getListDepartment();
-
-        mAdapter = new DepartmentAdapter(this, listDepartment);
-        listDepartmentView.setAdapter(mAdapter);
-
-
-
-
-        /*btnAddTeacher.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentAddTeacher = new Intent(MainActivity.this, AddTeacherActivity.class );
-                startActivity(intentAddTeacher);
-            }
-        });*/
-
-        btnAddDepartment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final AlertDialog dialogBuilder = new AlertDialog.Builder(MainActivity.this).create();
-                LayoutInflater inflater = getLayoutInflater();
-                View dialogView = inflater.inflate(R.layout.custom_dialog, null);
-
-                final TextInputEditText departmentCodeEditText =  dialogView.findViewById(R.id.department_code_edit_text);
-                final TextInputEditText departmentNameEditText = dialogView.findViewById(R.id.department_name_edit_text);
-                MaterialButton btnAdd = dialogView.findViewById(R.id.btn_add_a_department);
-                MaterialButton btnCancel = dialogView.findViewById(R.id.btn_cancel_add_department);
-
-                btnCancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialogBuilder.dismiss();
-                    }
-                });
-                btnAdd.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Department department = new Department(departmentCodeEditText.getText().toString(),
-                                departmentNameEditText.getText().toString());
-                        addDepartment(department);
-                        dialogBuilder.dismiss();
-                    }
-                });
-
-                dialogBuilder.setView(dialogView);
-                dialogBuilder.show();
-
-            }
-        });
-
-        listDepartmentView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Department department = (Department) parent.getItemAtPosition(position);
-                Toast.makeText(MainActivity.this,"-----------" + department.getDepartmentCode(), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this,  ShowListTeacherActivity.class);
-                intent.putExtra("departmentCode", department.getDepartmentCode());
-                intent.putExtra("departmentName", department.getDepartmentName());
-                startActivity(intent);
-            }
-        });
+        btnDepartment.setOnClickListener(btnDepartmentClick);
+        btnSubject.setOnClickListener(btnSubjectClick);
 
     }
 
-    public void addDepartment(Department department){
-        mFirebaseDatabase.child(department.getDepartmentCode()).setValue(department)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
-            }
-        });
-        mFirebaseDatabase.child(department.getDepartmentCode()).child("currentTeacherCode").setValue(0);
-    }
-
-
-
-    public void getListDepartmentName(){
-        mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                listDepartmentName.clear();
-                for(DataSnapshot departmentSnapshot : dataSnapshot.getChildren()){
-                    Department department = departmentSnapshot.getValue(Department.class);
-                    listDepartmentName.add(department.getDepartmentName());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
-    public void getListDepartment(){
-        mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                listDepartment.clear();
-                for(DataSnapshot departmentSnapshot : dataSnapshot.getChildren()){
-                    Department department  = departmentSnapshot.getValue(Department.class);
-
-                    listDepartment.add(department);
-                    System.out.println("GG " + department.getDepartmentName());
-
-                }
-                mAdapter = new DepartmentAdapter(MainActivity.this, listDepartment);
-                listDepartmentView.setAdapter(mAdapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-    public static String getDepartmentCode(String departmentName){
-        for(int i = 0; i < listDepartment.size(); i++ ){
-            if(listDepartment.get(i).getDepartmentName().equals(departmentName )){
-                return listDepartment.get(i).getDepartmentCode();
-            }
+    View.OnClickListener btnDepartmentClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(MainActivity.this, ShowListDepartmentActivity.class);
+            startActivity(i);
         }
-        return null;
-    }
+    };
+
+    View.OnClickListener btnSubjectClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(MainActivity.this, ShowListSubjectActivity.class);
+            startActivity(i);
+        }
+    };
+
 }

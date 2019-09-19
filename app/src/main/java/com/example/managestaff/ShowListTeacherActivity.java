@@ -83,7 +83,8 @@ public class ShowListTeacherActivity extends AppCompatActivity {
                 Teacher teacher = (Teacher) parent.getItemAtPosition(position);
                 Toast.makeText(ShowListTeacherActivity.this, teacher.getFullName(), Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(ShowListTeacherActivity.this, DetailATeacher.class);
+                Intent intent = new Intent(ShowListTeacherActivity.this, SubjectListATeacher.class);
+
                 intent.putExtra("departmentCode", getIntent().getExtras().get("departmentCode").toString());
                 intent.putExtra("teacherCode", teacher.getTeachCode());
                 intent.putExtra("teacherName", teacher.getFullName());
@@ -170,7 +171,7 @@ public class ShowListTeacherActivity extends AppCompatActivity {
                 Toast.makeText(ShowListTeacherActivity.this, "edit button", Toast.LENGTH_SHORT).show();
                 final AlertDialog dialogBuilder = new AlertDialog.Builder(ShowListTeacherActivity.this).create();
                 LayoutInflater inflater = getLayoutInflater();
-                View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+                View dialogView = inflater.inflate(R.layout.custom_dialog_add_department, null);
 
                 final TextInputEditText departmentCodeEditText =  dialogView.findViewById(R.id.department_code_edit_text);
                 final TextInputEditText departmentNameEditText = dialogView.findViewById(R.id.department_name_edit_text);
@@ -292,6 +293,7 @@ public class ShowListTeacherActivity extends AppCompatActivity {
         databaseReference.setValue(null);
 
     }
+
 
 
 

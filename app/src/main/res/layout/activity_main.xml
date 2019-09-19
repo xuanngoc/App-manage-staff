@@ -1,70 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#2ecc71">
+    android:background="#ffffff"
+    android:layout_gravity="center"
+    android:gravity="center">
 
-    <TextView
-        android:id="@+id/title"
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="30dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_department"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="10"
-        android:text="Danh sách các bộ môn"
-        android:layout_marginTop="13dp"
-        android:textSize="26sp"
-        android:gravity="center"/>
-
-
-
-    <ListView
-        android:id="@+id/list_department_view"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_weight="60"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"/>
-
-
-    <!--<LinearLayout
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Quản lý các bộ môn, giáo viên"
+        android:textColor="@android:color/white"
+        android:theme="@style/MatButton"
+        android:background="#FD7272"
+        android:layout_marginBottom="40dp"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_subject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="10"
-        android:layout_marginBottom="30dp"
-        android:gravity="center">
-        <Button
-            android:id="@+id/btn_add_teacher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:text="Thêm giáo viên"
-            android:textColor="#c23616"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/my_button"/>
-        <Button
-            android:id="@+id/btn_add_department"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:text="Thêm bộ môn"
-            android:textColor="#c23616"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/my_button"/>
-    </LinearLayout>-->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_add_department"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:src="@android:drawable/ic_input_add" />
-
-
-
-
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Quản lý các môn học"
+        android:textColor="@android:color/white"
+        android:theme="@style/MatButton"
+        android:background="#FD7272"/>
 
 </LinearLayout>

@@ -9,20 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ShowListTeacherActivity"
+        <activity android:name=".SubjectListATeacher"></activity>
+        <activity android:name=".DetailASubject" />
+        <activity android:name=".ShowListSubjectActivity" />
+        <activity android:name=".ShowListDepartmentActivity" />
+        <activity
+            android:name=".ShowListTeacherActivity"
             android:label="Danh sách giáo viên"
-            android:parentActivityName=".MainActivity"/>
-
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DetailATeacher"
-            android:label="Chi tiết giáo viên"
-             />
+            android:label="Chi tiết giáo viên" />
         <activity
             android:name=".AddTeacherActivity"
             android:label="Thêm giáo viên"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity"
-            android:label="Danh sách các bộ môn">
+        <activity
+            android:name=".MainActivity"
+            android:label="Manage staff">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
