@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#2ecc71">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quản lý sách, giáo trình"
+        android:textColor="#8e44ad"
+        android:textSize="26sp"
+        android:gravity="center"
+        android:layout_margin= "30dp"/>
+
+    <LinearLayout
+        android:id="@+id/table_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/title">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text="STT"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#c0392b"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="Tên cuốn sách"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#c0392b"/>
+        <TextView
+            android:id="@+id/subject_use_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:text="Số môn sử dụng"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#c0392b"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="Tên các môn"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#c0392b"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/list_book_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/table_view"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

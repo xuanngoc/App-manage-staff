@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity{
 
     private MaterialButton btnDepartment;
     private MaterialButton btnSubject;
+    private MaterialButton btnBook;
 
 
 
@@ -50,9 +51,11 @@ public class MainActivity extends AppCompatActivity{
 
         btnDepartment = findViewById(R.id.btn_department);
         btnSubject = findViewById(R.id.btn_subject);
+        btnBook = findViewById(R.id.btn_book);
 
         btnDepartment.setOnClickListener(btnDepartmentClick);
         btnSubject.setOnClickListener(btnSubjectClick);
+        btnBook.setOnClickListener(btnBookClick);
 
     }
 
@@ -68,6 +71,13 @@ public class MainActivity extends AppCompatActivity{
         @Override
         public void onClick(View v) {
             Intent i = new Intent(MainActivity.this, ShowListSubjectActivity.class);
+            startActivity(i);
+        }
+    };
+    View.OnClickListener btnBookClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(MainActivity.this, ShowListBookActivity.class);
             startActivity(i);
         }
     };

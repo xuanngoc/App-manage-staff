@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#ffffff"
-    android:layout_gravity="center"
-    android:gravity="center">
+    android:layout_gravity="center">
 
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/logo"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="110dp"
+        android:layout_gravity="center"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_department"
@@ -25,7 +25,8 @@
         android:textColor="@android:color/white"
         android:theme="@style/MatButton"
         android:background="#FD7272"
-        android:layout_marginBottom="40dp"/>
+        android:layout_marginBottom="20dp"/>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_subject"
         android:layout_width="match_parent"
@@ -33,6 +34,18 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="Quản lý các môn học"
+        android:textColor="@android:color/white"
+        android:theme="@style/MatButton"
+        android:background="#FD7272"
+        android:layout_marginBottom="20dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_book"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Quản lý sách, giáo trình"
         android:textColor="@android:color/white"
         android:theme="@style/MatButton"
         android:background="#FD7272"/>

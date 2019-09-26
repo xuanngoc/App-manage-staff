@@ -5,7 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -14,6 +19,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import user.Book;
 import user.Subject;
 import user.Teacher;
 
@@ -154,4 +160,62 @@ public class DetailASubject extends AppCompatActivity {
                     }
                 });
     }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_subject, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        switch (id){
+            case R.id.action_add_book:
+                final android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(DetailASubject.this);
+                View view = getLayoutInflater().inflate(R.layout.dialog_spinner_add_book, null);
+                builder.setTitle("Chọn sách, giáo trình");
+                final Spinner spinner = view.findViewById(R.id.spinner);
+
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(DetailASubject.this, android.R.layout.simple_spinner_item,
+                        ShowListBookActivity.listBookName);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinner.setAdapter(adapter);
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //belongDepartmentView.setText(spinner.getSelectedItem().toString());
+                        //mListSubject1.add(ShowListSubjectActivity.getSubject(spinner.getSelectedItem().toString()));
+                        //addSubject(ShowListSubjectActivity.getSubject(spinner.getSelectedItem().toString()));
+                        addBook(ShowListBookActivity.getBook(spinner.getSelectedItem().toString()));
+                        dialog.dismiss();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                builder.setView(view);
+                android.app.AlertDialog dialog = builder.create();
+                dialog.show();
+
+        }
+        return true;
+    }
+    private void addBook(Book book){
+        DatabaseReference firebaseDatabase = FirebaseDatabase.getInstance()
+                .getReference("Books").child(book.getBookName())
+                .child("SubjectsUsage")
+                .child(subjectNameEditText.getText().toString());
+        firebaseDatabase.setValue(true);
+
+    }
+
 }

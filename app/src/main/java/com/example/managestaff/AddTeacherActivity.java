@@ -167,13 +167,8 @@ public class AddTeacherActivity extends AppCompatActivity {
                         joinDateView.getText().toString(),
                         Float.parseFloat( salaryCoefficientView.getText().toString()) );
 
-
-
-
                 addTeacher(departmentCode, teacher,getApplicationContext());
 
-                System.out.println("Come on, pls");
-                //Toast.makeText(AddTeacherActivity.this, "Clicked", Toast.LENGTH_LONG).show();
                 finish();
             }
         });

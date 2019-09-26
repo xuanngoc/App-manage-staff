@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm môn học"
+        android:text="Thông tin môn học"
         android:textSize="28dp"
         android:textColor="#ff4757"
         android:gravity="center"

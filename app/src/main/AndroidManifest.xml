@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SubjectListATeacher"></activity>
+        <activity android:name=".ShowListBookActivity"></activity>
+        <activity android:name=".SubjectListATeacher" />
         <activity android:name=".DetailASubject" />
         <activity android:name=".ShowListSubjectActivity" />
         <activity android:name=".ShowListDepartmentActivity" />

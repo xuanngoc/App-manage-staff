@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/stt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            tools:text="STT"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#c0392b"/>
+        <TextView
+            android:id="@+id/book_name_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            tools:text="Tên cuốn sách"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#c0392b"/>
+        <TextView
+            android:id="@+id/used_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            tools:text="Số môn sử dụng"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#c0392b"/>
+        <TextView
+            android:id="@+id/subjects_use_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            tools:text="Tên các môn"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#c0392b"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

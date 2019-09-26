@@ -129,6 +129,10 @@ public class ShowListTeacherActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        getListTeacher();
+    }
+
+    private void getListTeacher(){
         mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

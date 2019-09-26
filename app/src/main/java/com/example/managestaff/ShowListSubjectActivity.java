@@ -86,6 +86,7 @@ public class ShowListSubjectActivity extends AppCompatActivity {
             final TextInputEditText subjectCreditsEditText = dialogView.findViewById(R.id.subject_credits_edit_text);
             final TextInputEditText subjectHoursEditText = dialogView.findViewById(R.id.subject_hours_edit_text);
             final TextInputEditText subjectCoefficientEditText = dialogView.findViewById(R.id.subject_coefficient_edit_text);
+
             MaterialButton btnAdd = dialogView.findViewById(R.id.btn_add_subject);
             MaterialButton btnCancel = dialogView.findViewById(R.id.btn_cancel_add_suject);
 
